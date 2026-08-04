@@ -1,0 +1,212 @@
+[
+  {
+    "doc_id": "INC-2025-08-14-001",
+    "title": "Payment Gateway Timeout Outage - Card Present Transactions",
+    "document_type": "incident",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-08-14",
+    "path": "docs/incident_reports/INC-2025-08-14-payment-gateway-timeout.pdf",
+    "severity": "high",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "INC-2025-10-02-002",
+    "title": "Card Authorization Service Outage - Database Failover Delay",
+    "document_type": "incident",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-10-02",
+    "path": "docs/incident_reports/INC-2025-10-02-card-authorization-outage.pdf",
+    "severity": "critical",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "INC-2025-12-19-003",
+    "title": "ACH Batch Payment Processing Failure - Year-End Volume Spike",
+    "document_type": "incident",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-12-19",
+    "path": "docs/incident_reports/INC-2025-12-19-ach-batch-failure.pdf",
+    "severity": "high",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "INC-2026-02-27-004",
+    "title": "Duplicate Wire Transfer Submissions Due to Client Retry Storm",
+    "document_type": "incident",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2026-02-27",
+    "path": "docs/incident_reports/INC-2026-02-27-wire-transfer-duplicate.pdf",
+    "severity": "critical",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "INC-2026-05-11-005",
+    "title": "Payment Gateway Timeout Recurrence - CNA Connection Pool",
+    "document_type": "incident",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2026-05-11",
+    "path": "docs/incident_reports/INC-2026-05-11-payment-gateway-timeout-recurrence.pdf",
+    "severity": "high",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "INC-2026-07-08-006",
+    "title": "Mobile Banking App Login Outage - Identity Provider Certificate Expiry",
+    "document_type": "incident",
+    "department": "retail_banking",
+    "access_level": "internal",
+    "created_date": "2026-07-08",
+    "path": "docs/incident_reports/INC-2026-07-08-mobile-app-login-outage.pdf",
+    "severity": "high",
+    "status": "resolved"
+  },
+  {
+    "doc_id": "RB-PGW-001",
+    "title": "Runbook: Payment Gateway Regional Failover",
+    "document_type": "runbook",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-08-21",
+    "path": "docs/runbooks/RB-payment-gateway-failover.pdf"
+  },
+  {
+    "doc_id": "RB-DB-002",
+    "title": "Runbook: Production Database Point-in-Time Restore",
+    "document_type": "runbook",
+    "department": "core_banking",
+    "access_level": "internal",
+    "created_date": "2025-06-10",
+    "path": "docs/runbooks/RB-database-restore.pdf"
+  },
+  {
+    "doc_id": "RB-IR-003",
+    "title": "Runbook: Incident Response Process and Severity Definitions",
+    "document_type": "runbook",
+    "department": "engineering",
+    "access_level": "internal",
+    "created_date": "2025-05-01",
+    "path": "docs/runbooks/RB-incident-response-process.pdf"
+  },
+  {
+    "doc_id": "RB-FRAUD-004",
+    "title": "Runbook: Card Fraud Alert Triage",
+    "document_type": "runbook",
+    "department": "security",
+    "access_level": "internal",
+    "created_date": "2025-11-05",
+    "path": "docs/runbooks/RB-card-fraud-alert-triage.pdf"
+  },
+  {
+    "doc_id": "ARCH-PAY-001",
+    "title": "Architecture: Payments Platform Overview",
+    "document_type": "architecture",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-07-01",
+    "path": "docs/architecture_docs/ARCH-payments-platform-overview.pdf"
+  },
+  {
+    "doc_id": "ARCH-CORE-002",
+    "title": "Architecture: Core Banking Integration Layer",
+    "document_type": "architecture",
+    "department": "core_banking",
+    "access_level": "internal",
+    "created_date": "2025-04-15",
+    "path": "docs/architecture_docs/ARCH-core-banking-integration.pdf"
+  },
+  {
+    "doc_id": "ARCH-DATA-003",
+    "title": "Architecture: Enterprise Data Platform",
+    "document_type": "architecture",
+    "department": "data_platform",
+    "access_level": "internal",
+    "created_date": "2025-03-20",
+    "path": "docs/architecture_docs/ARCH-data-platform.pdf"
+  },
+  {
+    "doc_id": "ARCH-IAM-004",
+    "title": "Architecture: Identity and Access Management",
+    "document_type": "architecture",
+    "department": "security",
+    "access_level": "internal",
+    "created_date": "2025-02-10",
+    "path": "docs/architecture_docs/ARCH-identity-access-management.pdf"
+  },
+  {
+    "doc_id": "SPEC-MOBILE-001",
+    "title": "Product Spec: Mobile Instant Transfer",
+    "document_type": "product_spec",
+    "department": "product",
+    "access_level": "internal",
+    "created_date": "2025-09-10",
+    "path": "docs/product_specs/SPEC-mobile-instant-transfer.pdf"
+  },
+  {
+    "doc_id": "SPEC-SAVE-002",
+    "title": "Product Spec: Savings Goals",
+    "document_type": "product_spec",
+    "department": "product",
+    "access_level": "internal",
+    "created_date": "2025-06-18",
+    "path": "docs/product_specs/SPEC-savings-goals-feature.pdf"
+  },
+  {
+    "doc_id": "SPEC-CARD-003",
+    "title": "Product Spec: Self-Service Card Controls",
+    "document_type": "product_spec",
+    "department": "product",
+    "access_level": "internal",
+    "created_date": "2025-10-25",
+    "path": "docs/product_specs/SPEC-card-controls.pdf"
+  },
+  {
+    "doc_id": "SPEC-LOAN-004",
+    "title": "Product Spec: Business Loan Application Portal",
+    "document_type": "product_spec",
+    "department": "product",
+    "access_level": "internal",
+    "created_date": "2026-01-14",
+    "path": "docs/product_specs/SPEC-business-loan-portal.pdf"
+  },
+  {
+    "doc_id": "MN-2025-09-001",
+    "title": "Meeting Notes: Payments Reliability Quarterly Review",
+    "document_type": "meeting_notes",
+    "department": "payments",
+    "access_level": "internal",
+    "created_date": "2025-09-18",
+    "path": "docs/meeting_notes/MN-2025-09-payments-reliability-review.pdf"
+  },
+  {
+    "doc_id": "MN-2026-01-002",
+    "title": "Meeting Notes: Q1 2026 Product Roadmap Planning",
+    "document_type": "meeting_notes",
+    "department": "product",
+    "access_level": "internal",
+    "created_date": "2026-01-08",
+    "path": "docs/meeting_notes/MN-2026-01-quarterly-roadmap.pdf"
+  },
+  {
+    "doc_id": "MN-2026-03-003",
+    "title": "Meeting Notes: Security Review Sync - Payments Idempotency",
+    "document_type": "meeting_notes",
+    "department": "security",
+    "access_level": "internal",
+    "created_date": "2026-03-05",
+    "path": "docs/meeting_notes/MN-2026-03-security-review-sync.pdf"
+  },
+  {
+    "doc_id": "MN-2026-06-004",
+    "title": "Meeting Notes: H1 2026 Incident Postmortem Follow-Up",
+    "document_type": "meeting_notes",
+    "department": "engineering",
+    "access_level": "internal",
+    "created_date": "2026-06-25",
+    "path": "docs/meeting_notes/MN-2026-06-incident-postmortem-followup.pdf"
+  }
+]
