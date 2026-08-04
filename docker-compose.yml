@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      MCP_SERVER_URL: http://mcp_server:9000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mcp_server
+    volumes:
+      - ./sample_data:/app/sample_data:ro
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    env_file: .env
+    environment:
+      BACKEND_BASE_URL: http://backend:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  mcp_server:
+    build: ./mcp_server
+    env_file: .env
+    ports:
+      - "9000:9000"
+    restart: unless-stopped

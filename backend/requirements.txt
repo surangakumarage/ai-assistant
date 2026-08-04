@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+langgraph
+langchain
+langchain-anthropic
+langsmith
+pinecone-client
+rank-bm25
+pydantic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+structlog
