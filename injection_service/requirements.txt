@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+langchain-anthropic
+pinecone
+pydantic
+pydantic-settings
+openai
