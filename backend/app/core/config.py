@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -40,6 +41,28 @@ class Settings(BaseSettings):
     mcp_server_url: str = "http://mcp_server:9000"
 
 
+def _configure_langsmith(settings: Settings) -> None:
+    # LangChain/LangSmith's tracer reads raw process env vars directly, not
+    # our Settings object - pydantic-settings loading .env into Settings
+    # fields never touches os.environ. Without this, tracing silently never
+    # activates even with LANGCHAIN_TRACING_V2=true in .env.
+    if not settings.langchain_tracing_v2 or not settings.langchain_api_key:
+        os.environ["LANGCHAIN_TRACING_V2"] = "false"
+        os.environ["LANGSMITH_TRACING"] = "false"
+        return
+
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_API_KEY"] = settings.langchain_api_key
+    os.environ["LANGCHAIN_PROJECT"] = settings.langchain_project
+    # LANGSMITH_* are the current SDK's env var names; LANGCHAIN_* are the
+    # older aliases some components still read. Set both for safety.
+    os.environ["LANGSMITH_TRACING"] = "true"
+    os.environ["LANGSMITH_API_KEY"] = settings.langchain_api_key
+    os.environ["LANGSMITH_PROJECT"] = settings.langchain_project
+
+
 @lru_cache
 def get_settings() -> Settings:
-    return Settings()
+    settings = Settings()
+    _configure_langsmith(settings)
+    return settings

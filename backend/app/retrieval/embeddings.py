@@ -1,3 +1,4 @@
+from langsmith import traceable
 from openai import AsyncOpenAI
 
 from app.core.config import get_settings
@@ -6,6 +7,7 @@ _settings = get_settings()
 _client = AsyncOpenAI(api_key=_settings.openai_api_key)
 
 
+@traceable(run_type="embedding", name="openai_embed_texts")
 async def embed_texts(texts: list[str]) -> list[list[float]]:
     if _settings.embedding_provider != "openai":
         raise NotImplementedError(f"Unsupported embedding provider: {_settings.embedding_provider}")
