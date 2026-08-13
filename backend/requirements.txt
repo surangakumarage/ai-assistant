@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 langgraph
 langchain
-langchain-anthropic
+langchain-ollama
 langsmith
 pinecone
 rank-bm25
