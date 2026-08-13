@@ -1,6 +1,6 @@
 import re
 
-from langchain_anthropic import ChatAnthropic
+from langchain_ollama import ChatOllama
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage, ToolMessage
 
 from app.agents.models import Citation
@@ -88,7 +88,7 @@ def _build_context_and_sources(state: AgentState) -> tuple[str, dict[str, Citati
     return context, sources, flagged
 
 
-async def _run_with_tools(llm: ChatAnthropic, tools: list, messages: list[BaseMessage]) -> BaseMessage:
+async def _run_with_tools(llm: ChatOllama, tools: list, messages: list[BaseMessage]) -> BaseMessage:
     bound_llm = llm.bind_tools(tools) if tools else llm
     response = await bound_llm.ainvoke(messages)
 
@@ -129,7 +129,7 @@ async def response_node(state: AgentState) -> AgentState:
     system_prompt = RESPONSE_SYSTEM_PROMPT + TOOLS_GUIDANCE
     prompt = f"Question: {state['question']}\n\nSource material:\n{context}"
 
-    llm = ChatAnthropic(model=settings.llm_model, api_key=settings.anthropic_api_key)
+    llm = ChatOllama(model=settings.ollama_model, base_url=settings.ollama_base_url)
     messages: list[BaseMessage] = [SystemMessage(system_prompt), HumanMessage(prompt)]
     response = await _run_with_tools(llm, tools, messages)
     raw_answer = response.content

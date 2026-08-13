@@ -1,7 +1,7 @@
 import asyncio
 from collections import defaultdict
 
-from langchain_anthropic import ChatAnthropic
+from langchain_ollama import ChatOllama
 
 from app.agents.state import AgentState
 from app.auth.models import Role
@@ -41,7 +41,7 @@ def _batch_by_document(chunks: list[RetrievedChunk]) -> dict[str, list[Retrieved
 
 
 async def _analyze_batch(
-    llm: ChatAnthropic, question: str, doc_id: str, title: str, chunks: list[RetrievedChunk]
+    llm: ChatOllama, question: str, doc_id: str, title: str, chunks: list[RetrievedChunk]
 ) -> str | None:
     excerpt = "\n\n".join(wrap_untrusted(chunk.chunk_id, title, chunk.text) for chunk in chunks)
     prompt = f"Document: {title} ({doc_id})\n\nExcerpt:\n{excerpt}\n\nResearch question: {question}"
@@ -70,7 +70,7 @@ async def research_node(state: AgentState) -> AgentState:
     batches = _batch_by_document(candidates)
     doc_titles = {chunk.doc_id: chunk.title for chunk in candidates}
 
-    sub_agent_llm = ChatAnthropic(model=settings.llm_fast_model, api_key=settings.anthropic_api_key)
+    sub_agent_llm = ChatOllama(model=settings.ollama_model, base_url=settings.ollama_base_url)
 
     # Recurse/parallelize: each batch is analyzed independently and concurrently
     # by its own sub-agent call.
@@ -85,7 +85,7 @@ async def research_node(state: AgentState) -> AgentState:
     # Aggregate: reduce the (much smaller) per-document findings into one
     # synthesized answer, rather than ever putting all raw chunks in one prompt.
     if relevant_findings:
-        aggregate_llm = ChatAnthropic(model=settings.llm_model, api_key=settings.anthropic_api_key)
+        aggregate_llm = ChatOllama(model=settings.ollama_model, base_url=settings.ollama_base_url)
         aggregate_prompt = f"Original question: {question}\n\nFindings:\n" + "\n\n".join(relevant_findings)
         aggregate_response = await aggregate_llm.ainvoke(
             [("system", AGGREGATE_SYSTEM_PROMPT), ("human", aggregate_prompt)]

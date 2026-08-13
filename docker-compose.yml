@@ -10,6 +10,7 @@ services:
       - mcp_server
     volumes:
       - ./sample_data:/app/sample_data:ro
+      - ./docs:/docs:ro
     restart: unless-stopped
 
   frontend:
