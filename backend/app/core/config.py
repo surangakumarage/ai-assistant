@@ -14,8 +14,11 @@ class Settings(BaseSettings):
     llm_model: str = "claude-sonnet-4-5"
     llm_fast_model: str = "claude-haiku-4-5"
 
-    embedding_provider: str = "openai"
-    embedding_model: str = "text-embedding-3-small"
+    ollama_base_url: str = "http://host.docker.internal:11434"
+    ollama_model: str = "gemma4"
+
+    embedding_provider: str = "local"
+    embedding_model: str = "BAAI/bge-small-en-v1.5"
     openai_api_key: str = ""
 
     pinecone_api_key: str = ""

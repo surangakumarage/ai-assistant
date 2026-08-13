@@ -1,7 +1,8 @@
 fastapi
 uvicorn[standard]
-langchain-anthropic
+langchain-ollama
 pinecone
 pydantic
 pydantic-settings
 openai
+sentence-transformers

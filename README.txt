@@ -101,7 +101,12 @@ as a one-off script (python -m app.retrieval.ingest). The pipeline:
    100 token overlap, cl100k_base), producing Chunk(chunk_id, chunk_index,
    text) objects, IDs like INC-2025-08-14-001::chunk-0.
 4. Embedding - embeddings.py batches chunk text (100 at a time) through
-   OpenAI's text-embedding-3-small via AsyncOpenAI.embeddings.create.
+   the configured EMBEDDING_PROVIDER. Default is "local", running
+   sentence-transformers (BAAI/bge-small-en-v1.5, 384-dim) on-box for free;
+   set EMBEDDING_PROVIDER=openai to use OpenAI's text-embedding-3-small
+   (1536-dim) via AsyncOpenAI.embeddings.create instead. Local encoding is
+   blocking/CPU-bound, so it runs via asyncio.to_thread to avoid stalling
+   the event loop.
 5. Upsert - each chunk becomes a Pinecone vector: id = chunk_id, values =
    embedding, metadata = {doc_id, title, document_type, department,
    access_level, created_date, chunk_index, text} (full chunk text is stored

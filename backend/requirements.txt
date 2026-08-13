@@ -17,5 +17,6 @@ httpx
 structlog
 pypdf
 openai
+sentence-transformers
 tiktoken
 langchain-text-splitters

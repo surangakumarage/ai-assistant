@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from langchain_anthropic import ChatAnthropic
+from langchain_ollama import ChatOllama
 from pydantic import BaseModel
 
 from app.core.config import get_settings
@@ -44,7 +44,7 @@ async def query(request: QueryRequest) -> QueryResponse:
     matches = results.get("matches", [])
     context = "\n\n".join(match["metadata"]["text"] for match in matches)
 
-    llm = ChatAnthropic(model=settings.llm_model, api_key=settings.anthropic_api_key)
+    llm = ChatOllama(model=settings.ollama_model, base_url=settings.ollama_base_url)
     prompt = f"{SYSTEM_PROMPT}\n\nContext:\n{context}\n\nQuestion: {request.question}"
     response = await llm.ainvoke(prompt)
 
