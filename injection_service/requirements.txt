@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+langchain-ollama
+pinecone
+pydantic
+pydantic-settings
+openai
+sentence-transformers

@@ -1,0 +1,9 @@
+INFO:     Started server process [20348]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61596 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51316 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55194 - "POST /agent/query/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59934 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59939 - "POST /agent/query HTTP/1.1" 502 Bad Gateway
